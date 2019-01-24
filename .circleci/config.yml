@@ -22,8 +22,8 @@ jobs:
       - run:
           name: Jekyll Build step to create _site
           command: |
-            jekyll --version
-            jekyll build
+            bundle exec jekyll --version
+            bundle exec jekyll build
       - run: 
           name: Sync to S3 bucket
           command: aws s3 sync $CIRCLE_WORKING_DIRECTORY/_site/ s3://innovation-lab.cz/blog/ --delete --region eu-central-1
